@@ -1,15 +1,15 @@
 # Worker brief
 
-**Goal**: [one or two lines] This feeds: [the decision or deliverable]
+**Goal and decision**: [What should be produced and why?]
 
-**Inputs**: [only the facts, files and links needed]
+**Inputs**: [Relevant facts, files, links and prior findings. State what context is inherited or unavailable.]
 
-**Already known (don't redo)**: [findings, sources already checked, options ruled out]
+**Scope and ownership**: [Question or assigned files; coordinate with other writers and do not revert their changes.]
 
-**Do**: [the steps, or the question to answer]
+**Tools and boundaries**: [Available tools and permitted side effects; identify actions outside the task.]
 
-**Return**: [format, e.g. a table with columns X, Y, Z] Max [N] words. Cite sources with the date checked.
+**Return**: [Artifact or format, evidence and meaningful limits. Ask for dated sources when needed.]
 
-**Stop when**: [done condition] If blocked, stop and say what blocked you; don't guess.
+**Done or blocked**: [Acceptance condition, and what to report if blocked.]
 
-**Effort**: [normal / high, and why if high]
+**Effort**: [If selectable, choose for complexity and risk; state any required independence.]

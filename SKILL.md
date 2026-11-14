@@ -1,40 +1,31 @@
 ---
 name: cheap-delegation
-description: Use before spawning subagents or workers, choosing a reasoning effort level, or writing a brief for another agent, and when following up on delegated work. Starts at normal effort and raises it only on retry, reuses one worker per workstream, caps fan-out, and keeps briefs tight so nothing is researched twice.
+description: Plan and coordinate agent delegation when work can be divided, an independent review is needed, or a worker needs a clear brief. Use for choosing scope and effort, avoiding duplicated research, and integrating delegated results.
 license: MIT
 ---
 
 # Cheap delegation
 
-Each worker starts with an empty head and has to be told or rediscover everything. Several workers in parallel usually cost several times one agent doing the work. Delegate when it pays: the pieces are independent, too big for one context, or need a genuinely separate view (a blind reviewer, independent advisors).
+Delegate when it improves the outcome enough to justify coordination. A short lookup or a few dependent steps usually stay with one agent. Independent substantial work, specialist work, or a genuinely independent review can justify parallel workers. Preserve any user-required reviewers, model choices, or independence even if they cost more.
 
-## Should this be delegated?
-- One lookup or a few known steps: do it yourself.
-- Independent pieces that each need real work: delegate, one worker per piece.
-- A required independent check (blind review, separate reviewers): keep it. That independence is the point; don't merge it away to save usage.
+## Decide and scope
 
-Cap the count before starting. If you drop planned workers, say in one line when they'd be worth adding back.
+Check whether delegation is allowed and which workers, tools, context inheritance, models and effort controls are actually available. A worker may inherit history or start with limited context; do not assume either. If delegation is unavailable or out of scope, do the work directly and report any missing independent review.
 
-## Effort: low first, high on retry
-- Start at normal or low reasoning effort for lookups, formatting, extraction and well-specified tasks.
-- Raise the effort only when a result comes back wrong, thin or contradictory, and say why in the retry brief.
-- Use high effort from the start only for work where a mistake is expensive and hard to spot (security, legal, money, irreversible changes).
+Split work at real boundaries. Assign each worker a deliverable, explicit file or responsibility ownership when editing, relevant input and what is already known. Parallel writers must know they share a workspace and must not revert others' changes. Avoid redundant exploration, but use separate reviewers where independence is a requirement. Set the number of workers to the task's complexity and available capacity, not a fixed universal limit.
 
-## Tight briefs
-Use `assets/worker-brief.md`. A brief gives:
-- the goal in one or two lines and the decision it feeds;
-- only the inputs needed (facts, files, links), not the whole conversation;
-- what's already known, so it isn't researched again;
-- the output format and a length cap;
-- when to stop, and what to do if blocked.
+Choose available effort and capabilities for complexity, ambiguity, risk and consequences. Simple extraction may need little; difficult reasoning or a consequential error may justify more from the start. Retry or adjust only when evidence warrants it. Do not assume an effort or model control exists.
 
-## One worker per workstream
-- Keep a worker that already holds a workstream's context and send its follow-ups back to it.
-- If it's gone, start the new worker with the earlier worker's saved findings, not from scratch.
-- Ask workers to return results in a form you can save (a short table or notes file), so follow-ups can reuse them.
+## Brief and coordinate
 
-## Merging results
-Compare and merge in the main agent when the results are short and structured. A separate merge worker is only worth it when the combined results don't fit or need a specialist.
+Use [the worker brief](assets/worker-brief.md) when it helps. Give the goal and decision, necessary context and source pointers, scope and ownership, allowed tools and side effects, expected output, completion criteria, and a useful blocked condition. Give an independent reviewer only the information appropriate to its review; do not reveal the intended answer to a blind evaluator.
 
-## Quality floor
-Cheaper delegation still needs the same sources, dates and checks. Tell workers to cite primary sources and date anything that changes (prices, rules, versions).
+Reuse a worker that already knows the workstream where possible. If it is unavailable, give its successor the relevant findings and source pointers. Follow the user's requested cadence and platform rules for progress updates. A skill instruction is not permission to contact third parties, change external systems, or exceed the original task.
+
+## Integrate
+
+Read the actual deliverables, not only worker summaries. Reconcile conflicts, inspect changes against ownership and scope, and run checks appropriate to the result. Distinguish a worker's report from independently verified behavior. Report missing work, disagreement, blocked tasks and untested assumptions; do not claim success from a dispatched task alone. Cite primary sources and dates for changeable facts when the work calls for research.
+
+## Example
+
+For a single known file lookup, search directly. For an implementation with independent frontend and backend changes plus a required blind review, assign separate non-overlapping ownership and keep the review independent; integrate and test the combined result before reporting it complete.
